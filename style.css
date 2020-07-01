@@ -1,12 +1,51 @@
-* {
+body{
+    background-color: #efeee7;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+}
+
+a{
+    color: #d21034;
+}
+
+header{
+    background-color: #333;
     text-align: center;
-    font-size: 36px;
 }
 
-header {
-    font-size: 48px;
+header h1{
+    color: #efeee7;
+    font-size: 28px;
+    padding: 16px;
+    margin: 0;
 }
 
-ol {
-    list-style-position: inside;
+.container{
+    width: 1024px;
+    margin: 0 auto;
+}
+
+#main-bio, #bio-img, #contact-info{
+    float: left
+}
+
+#bio-img{
+    margin-right: 32px;
+}
+
+#main-bio{
+    width: 70%;
+}
+
+#contact-info{
+    width: 30%;
+}
+
+#homework{
+    margin-left: 23%;
+    clear: both;
+    float: left;
 }

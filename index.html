@@ -2,19 +2,60 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bootcamp Homework Assignments</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Basic HTML Bio</title>
+    <link href="style.css" type = "text/css" rel="stylesheet">
 </head>
 <body>
+    <!-- site header -->
     <header>
-        Homework Assignments:
+        <h1 class = "top">Student Bio</h1>
     </header>
 
-    <ol>
-        <li>
-            <a href="1/Develop/index-1.html" target="_blank">Code Refactor</a>
-        </li>
-    </ol>
+    <div class = "container">
+        <section id = "main-bio">
+            <h1>Sebastian Brear</h1>
+            <img id = "bio-img" src = "profile-picture.jpg" width = "200" height = "200" alt="Not Loading">
+            <p>
+                I'm currently attending
+                <a href = "https://www.ucdavis.edu/" target="_blank">
+                    UC Davis
+                </a>
+                , majoring in 
+                <a href = "https://www.livescience.com/47571-electrical-engineering.html#:~:text=Electrical%20engineering%20is%20one%20of,to%20huge%20power%20station%20generators." target="_blank">
+                    Electrical Engineering
+                </a>
+            </p>
+        </section>
+    </div>
+
+    <div id = "contact-info"><strong>
+        <h1>
+            Contact Info
+        </h1>
+        <section>
+            <ul>
+                <li>
+                    <a href = "mailto: sebastian.brear@gmail.com" target="_blank">Email</a>
+                </li>
+                <li>
+                    <a href = "https://github.com/ssbrear" target="_blank">GitHub</a>
+                </li>
+                <li>
+                    <a href = "https://www.linkedin.com/in/sebastian-brear-966033189/" target="_blank">LinkedIn</a>
+                </li>
+            </ul>
+        </section>
+    </strong></div>
+
+    <div id = "homework">
+        <h1>
+            Homework Assignments:
+        </h1>
+        <ol>
+            <li>
+                <a href="1/Develop/index-1.html" target="_blank">Code Refactor</a>
+            </li>
+        </ol>
+    </div>
 </body>
 </html>
