@@ -1,51 +1,64 @@
+/* General style of the entire page */
+* {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
 body{
     background-color: #efeee7;
-    font-family: Georgia, 'Times New Roman', Times, serif;
     color: #333;
     margin: 0;
     padding: 0;
     line-height: 1.5;
 }
 
+header h1{
+    margin: 0;
+    padding: 8px;
+
+    background-color: #333;
+    color: #efeee7;
+    
+    text-align: center;
+    font-size: 48px;
+}
+
+/* Styling of individual elements */
+
+h1 {
+    font-size: 32px;
+    margin-top: 16px;
+}
+
+p {
+    position: relative;
+    top: 140px;
+    font-size: 16px;
+}
+
+ol {
+    list-style-position: inside;
+}
+
 a{
     color: #d21034;
 }
 
-header{
-    background-color: #333;
-    text-align: center;
-}
-
-header h1{
-    color: #efeee7;
-    font-size: 28px;
-    padding: 16px;
-    margin: 0;
-}
-
-.container{
+.wrapper {
+    margin: auto;
     width: 1024px;
-    margin: 0 auto;
+    overflow: auto;
 }
 
-#main-bio, #bio-img, #contact-info{
-    float: left
-}
-
-#bio-img{
-    margin-right: 32px;
-}
-
-#main-bio{
-    width: 70%;
-}
-
-#contact-info{
-    width: 30%;
-}
-
-#homework{
-    margin-left: 23%;
-    clear: both;
+#bio {
     float: left;
+}
+
+#contact {
+    float: right;
+}
+
+#homework {
+    margin-top: 80px;
+    text-align: center;
+    list-style-position: inside;
 }
