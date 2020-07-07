@@ -1,1 +1,1 @@
-# activity-6-25
+# My collection of homework assignments
