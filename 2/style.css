@@ -5,26 +5,36 @@
 }
 
 body {
-    background-color: grey;
+    background-color: #eee;
 }
 
-a {
-    color: grey;
-}
-
-ul {
-    display: table;
-    margin: auto;
-    padding: 0;
-    list-style-type: none;
-}
-
-li {
-    color: grey;
-    float: left;
-    padding: 16px;
+header {
+    color: rgb(214, 214, 214);
+    background-color: #888;
 }
 
 h1 {
-    padding: 5px;
+    background-color: #333;
+    text-align: center;
+    margin: 0;
+}
+
+a {
+    color: rgb(214, 214, 214);
+}
+
+ul {
+    margin-top: 10px;
+    list-style-type: none;
+    text-align: center;
+    padding: 0;
+}
+
+li {
+    display: inline-block;
+}
+
+.divider {
+    padding-left: 8px;
+    padding-right: 8px;
 }
