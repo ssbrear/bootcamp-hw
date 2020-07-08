@@ -38,3 +38,23 @@ li {
     padding-left: 8px;
     padding-right: 8px;
 }
+
+@media only screen and (max-width: 850px) {
+    h1 {
+        padding-top: 10px;
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    h1 {
+        padding-bottom: 10px;
+    }
+}
+
+@media only screen and (max-width: 850px) {
+    ul {
+        padding-top: 4px;
+        font-size: 10px;
+    }
+}
