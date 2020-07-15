@@ -39,6 +39,17 @@ li {
     padding-right: 8px;
 }
 
+footer {
+    background-color: #888;
+    text-align: center;
+    font-size: 12px;
+    padding: 16px;
+}
+
+main{
+    
+}
+
 @media only screen and (max-width: 850px) {
     h1 {
         padding-top: 10px;
