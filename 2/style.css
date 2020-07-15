@@ -46,8 +46,12 @@ footer {
     padding: 16px;
 }
 
-main{
-    
+label {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+button {
+    font-family: 'Times New Roman', Times, serif;
 }
 
 @media only screen and (max-width: 850px) {
