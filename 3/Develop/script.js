@@ -25,10 +25,10 @@ function generatePassword() {
   // Determines the length of the password
   var qLength = confirm("Should the length of the password be a value other than 8?");
   var length = 0;
-  while ((length < 8)||(length > 500)) {
+  while ((length < 8)||(length > 128)) {
     if (qLength == true) {
       length = parseInt(prompt("What is the length of the password? Choose a value ranging from 8 to 128:"));
-      if ((length < 8)||(length > 500)) {
+      if ((length < 8)||(length > 128)) {
         alert("You must select a number between 8 and 128 (inclusive)");
       }
     }
