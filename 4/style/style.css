@@ -1,0 +1,31 @@
+body {
+    font-family: Verdana, sans-serif;
+}
+
+#question, #subtitle {
+    text-align: center;
+}
+
+#question {
+    font-size: 40px;
+}
+
+#subtitle {
+    font-size: 16px;
+}
+
+#timer {
+    float: right;
+}
+
+#timer-label {
+    float: right;
+}
+
+ul {
+    list-style: none;
+}
+
+#resposne {
+    font-style: italic;
+}

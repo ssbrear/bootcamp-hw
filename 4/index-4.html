@@ -8,9 +8,41 @@
     <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
+    <header class="container-fluid">
+        <div class="row justify-content-between">
+            <a href="highscores.html" class="col" id="view-highscores"></a>
+            <div class="col" style="justify-content: right;">
+                <div id="timer"></div>
+                <div id="timer-label"></div>
+            </div>
+        </div>
+    </header>
 
+    <main class="container mt-5">
+        <div class="row">
+            <div class="col" id="question"></div>
+        </div>
+        <div class="row">
+            <div class="col text-secondary" id="subtitle"></div>
+        </div>
+        <div class="row">
+            <div class="col" id="start-button-parent">
+                <button type="button" class="btn btn-danger mx-auto d-block my-3" id="start-button">Start Quiz</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <ul id="answers"></ul>
+            </div>
+        </div>
 
-    
+        <hr>
+
+        <div class="row">
+            <div class="col text-secondary" id="response"></div>
+        </div>
+    </main>
+
     <script src="script/script.js"></script>
 </body>
 </html>
