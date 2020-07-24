@@ -16,9 +16,17 @@ var initials = document.querySelector("#initials");
 var currentQuestion = 0;
 
 // Pre-determined arrays of questions and answers
-var questionList = ["Which programming language runs the fastest?", "Where does javascript's console.log() function print the argument?", "Which of the following is used to compare content, but not data types?", "What is jQuery?", "If load multiple CSS files to be used for my webpage, what will happen?"];
-var answersList = [["C++", "Python", "Java", "Fortran"], ["The body of the html page", "The command prompt of your operating system", "The console of the webpage", "It doesn't print the argument"], ["=", "==", "===", "===="], ["A programming language", "A library", "An operating system", "An IDE"], ["All CSS will be loaded, the first one linked will have priority", "The webpage will not load any CSS and will display an error", "The webpage will attempt to load all CSS and will display an error", "All CSS will be loaded, the last one linked will have priority"]];
-var correctAnswer = [0, 2, 1, 0, 0];
+var questionList = ["Which programming language runs the fastest?",
+                "Where does javascript's console.log() function print the argument?",
+                "Which of the following is used to compare content, but not data types?",
+                "What is jQuery?",
+                "If load multiple CSS files to be used for my webpage, what will happen?"];
+var answersList = [["C++", "Python", "Java", "Fortran"],
+                ["The body of the html page", "The command prompt of your operating system", "The console of the webpage", "It doesn't print the argument"],
+                ["=", "==", "===", "===="],
+                ["A programming language", "A library", "An operating system", "An IDE"],
+                ["All CSS will be loaded, the first one linked will have priority", "The webpage will not load any CSS and will display an error", "The webpage will attempt to load all CSS and will display an error", "All CSS will be loaded, the last one linked will have priority"]];
+var correctAnswer = [0, 2, 1, 1, 3];
 
 init();
 
@@ -34,6 +42,7 @@ function init() {
     subtitle.textContent = "Try answering the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by 10 seconds!";
 }
 
+// Most of the javascript is tied to the clicking of the start button
 startBtn.addEventListener("click", function(){
     // Changing current content
     question.textContent = questionList[0];
@@ -42,6 +51,11 @@ startBtn.addEventListener("click", function(){
     
     // New style for current content
     question.style.fontSize = "24px";
+
+    // Timer has started
+    theTimer = setInterval(function() {
+        timer.textContent = parseInt(timer.textContent) - 1;
+    }, 1000);
 
     // Adding new content
     for (i = 0; i < answersList[0].length; i++) {
@@ -68,11 +82,18 @@ startBtn.addEventListener("click", function(){
             if (correctAnswer[currentQuestion] == this.value) {
                 // Display "Correct!"
                 response.textContent = "Correct!";
+                
             }
             else {
                 // Reduce timer by 10 seconds and display "Wrong!"
+                timer.textContent = parseInt(timer.textContent) - 10;
                 response.textContent = "Wrong!";
             }
+            
+            // Resets the response
+            window.setTimeout(function () {
+                response.textContent = "";
+            }, 1000);
 
             // Loads next question, if there is one
             if (currentQuestion < questionList.length - 1) {
@@ -90,8 +111,9 @@ startBtn.addEventListener("click", function(){
                 // Load "All Done" page
                 question.textContent = "All done!";
                 answer.style.display = "none";
-                subtitle.textContent = "Your score is: ";
+                subtitle.textContent = "Your score is: " + timer.textContent;
                 initials.style.display = "inline-block";
+                window.clearInterval(theTimer);
             }
 
         };
