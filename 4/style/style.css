@@ -29,3 +29,8 @@ ul {
 #resposne {
     font-style: italic;
 }
+
+#initials {
+    text-align: center;
+    display: none;
+}

@@ -10,14 +10,15 @@ var answer = document.querySelector("#answers");
 var response = document.querySelector("#response");
 var startBtnParent = document.querySelector("#start-button-parent");
 var startBtn = document.querySelector("#start-button");
+var initials = document.querySelector("#initials");
 
 // Boolean to keep track of current question
 var currentQuestion = 0;
 
 // Pre-determined arrays of questions and answers
-var questionList = ["My Q0", "My Q1", "My Q2", "My Q3", "My Q4"];
-var answersList = [["Q0A0", "Q0A1", "Q0A2", "Q0A3"], ["Q1A0", "Q1A1", "Q1A2", "Q1A3"], ["Q2A0", "Q2A1", "Q2A2", "Q2A3"], ["Q3A0", "Q3A1", "Q3A2", "Q3A3"], ["Q4A0", "Q4A1", "Q4A2", "Q4A3"]];
-var correctAnswer = [0, 0, 0, 0, 0];
+var questionList = ["Which programming language runs the fastest?", "Where does javascript's console.log() function print the argument?", "Which of the following is used to compare content, but not data types?", "What is jQuery?", "If load multiple CSS files to be used for my webpage, what will happen?"];
+var answersList = [["C++", "Python", "Java", "Fortran"], ["The body of the html page", "The command prompt of your operating system", "The console of the webpage", "It doesn't print the argument"], ["=", "==", "===", "===="], ["A programming language", "A library", "An operating system", "An IDE"], ["All CSS will be loaded, the first one linked will have priority", "The webpage will not load any CSS and will display an error", "The webpage will attempt to load all CSS and will display an error", "All CSS will be loaded, the last one linked will have priority"]];
+var correctAnswer = [0, 2, 1, 0, 0];
 
 init();
 
@@ -78,11 +79,19 @@ startBtn.addEventListener("click", function(){
                 // Increase the index of the question
                 currentQuestion++;
                 // Load new content
+                question.textContent = questionList[currentQuestion];
+                for (i = 0; i < answersList[currentQuestion].length; i++) {
+                    answer.children[i].children[0].textContent = answersList[currentQuestion][i];
+                    answer.children[i].children[0].textContent
+                }
+
             }
             else {
                 // Load "All Done" page
                 question.textContent = "All done!";
                 answer.style.display = "none";
+                subtitle.textContent = "Your score is: ";
+                initials.style.display = "inline-block";
             }
 
         };
