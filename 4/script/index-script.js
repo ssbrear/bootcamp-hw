@@ -10,9 +10,12 @@ var answer = document.querySelector("#answers");
 var response = document.querySelector("#response");
 var startBtnParent = document.querySelector("#start-button-parent");
 var startBtn = document.querySelector("#start-button");
-var initials = document.querySelector("#initials");
 
-// Boolean to keep track of current question
+// Reference to body at end of quiz
+var initials = document.querySelector("#initials");
+var submitBtn = document.querySelector("#submit-button")
+
+// Counter to keep track of current question
 var currentQuestion = 0;
 
 // Pre-determined arrays of questions and answers
@@ -28,6 +31,9 @@ var answersList = [["C++", "Python", "Java", "Fortran"],
                 ["All CSS will be loaded, the first one linked will have priority", "The webpage will not load any CSS and will display an error", "The webpage will attempt to load all CSS and will display an error", "All CSS will be loaded, the last one linked will have priority"]];
 var correctAnswer = [0, 2, 1, 1, 3];
 
+// Array to keep track of highscores
+var highscoresArray = [];
+
 init();
 
 // Function that initializes text to keep the html document small
@@ -40,6 +46,9 @@ function init() {
     // Main content
     question.textContent = "Code Quiz"
     subtitle.textContent = "Try answering the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by 10 seconds!";
+
+    // Initializes array of highscores from local storage
+    highscoresArray = JSON.parse(localStorage.getItem("highscores"));
 }
 
 // Most of the javascript is tied to the clicking of the start button
@@ -58,7 +67,7 @@ startBtn.addEventListener("click", function(){
     }, 1000);
 
     // Adding new content
-    for (i = 0; i < answersList[0].length; i++) {
+    for (var i = 0; i < answersList[0].length; i++) {
         // Creation of list item
         var listItem = document.createElement("li");
 
@@ -76,6 +85,7 @@ startBtn.addEventListener("click", function(){
         listItem.appendChild(listButton);
         answer.appendChild(listItem);
 
+        // Functionality for picking an answer
         listButton.onclick = function() {
 
             // Determines whether correct or incorrect
@@ -101,7 +111,7 @@ startBtn.addEventListener("click", function(){
                 currentQuestion++;
                 // Load new content
                 question.textContent = questionList[currentQuestion];
-                for (i = 0; i < answersList[currentQuestion].length; i++) {
+                for (var i = 0; i < answersList[currentQuestion].length; i++) {
                     answer.children[i].children[0].textContent = answersList[currentQuestion][i];
                     answer.children[i].children[0].textContent
                 }
@@ -113,9 +123,26 @@ startBtn.addEventListener("click", function(){
                 answer.style.display = "none";
                 subtitle.textContent = "Your score is: " + timer.textContent;
                 initials.style.display = "inline-block";
+                submitBtn.style.display = "inline-block";
                 window.clearInterval(theTimer);
             }
 
         };
     }
+});
+
+// Submits new score
+submitBtn.addEventListener("click", function(event) {
+    // Prevents refreshing of the page
+    event.preventDefault();
+    // If there is currently an array of scores, pushes a new value
+    if (highscoresArray != null) {
+        highscoresArray.push(initials.value + ": " + timer.textContent);
+    }
+    // If there are no current values stored, .push() will result in an error, so the array is instead initialized with a single value.
+    else {
+        highscoresArray = [initials.value + ": " + timer.textContent];
+    }
+    // Updates the value of the data in local storage
+    localStorage.setItem("highscores", JSON.stringify(highscoresArray));
 });

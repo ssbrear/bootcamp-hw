@@ -8,9 +8,32 @@
     <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
-    
+    <!-- Main content that takes up the center of the page -->
+    <main class="container mt-5">
 
+        <!-- Title/Question -->
+        <div class="row my-5">
+            <div class="col" id="title"></div>
+        </div>
+
+        <!-- List of highscores -->
+        <div class="row my-5">
+            <div class="col">
+                <ul id="list-highscores"></ul>
+            </div>
+        </div>
+
+        <!-- Return to home page button -->
+        <div class="row my-3">
+            <div class="col text-center">
+                <button type="button" onclick="location.href='index-4.html'" class="btn btn-secondary" id="return-to-index">Return to the front page</button>
+            </div>
+            <div class="col text-center">
+                <button type="button" class="btn btn-secondary" id="clear-highscores">Clear all highscores</button>
+            </div>
+        </div>
+    </main>
     
-    <script src="script/script.js"></script>
+    <script src="script/highscores-script.js"></script>
 </body>
 </html>

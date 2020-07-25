@@ -8,9 +8,13 @@
     <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
+    <!-- Content at the top of the page -->
     <header class="container-fluid">
         <div class="row justify-content-between">
+            <!-- Content on the top-left -->
+
             <a href="highscores.html" class="col" id="view-highscores"></a>
+            <!-- Content on the top-right -->
             <div class="col" style="justify-content: right;">
                 <div id="timer"></div>
                 <div id="timer-label"></div>
@@ -18,23 +22,34 @@
         </div>
     </header>
 
+    <!-- Main content that takes up the center of the page -->
     <main class="container mt-5">
+        <!-- Title/Question -->
         <div class="row">
             <div class="col" id="question"></div>
         </div>
+
+        <!-- Subtitle with secondary text -->
         <div class="row my-3">
             <div class="col text-secondary" id="subtitle"></div>
         </div>
+
+        <!-- Form to enter initials-->
         <div class="row my-3">
-            <form class="col form-inline">
-                <input class="mx-auto" type="text" name="initials" id="initials" placeholder="Enter your initials">
+            <form class="col form-inline justify-content-center">
+                <input type="text" name="initials" id="initials" placeholder="Enter your initials">
+                <button type="submit" onclick="location.href='highscores.html'" id="submit-button" class="mx-3 btn btn-primary">Submit</button>
             </form>
         </div>
+
+        <!-- Start button -->
         <div class="row">
             <div class="col" id="start-button-parent">
                 <button type="button" class="btn btn-danger mx-auto d-block my-3" id="start-button">Start Quiz</button>
             </div>
         </div>
+
+        <!-- Possible answers to click on -->
         <div class="row">
             <div class="col">
                 <ul id="answers"></ul>
@@ -43,11 +58,12 @@
 
         <hr>
 
+        <!-- Short response that flashes for one second after a user picks an answer to alert them whether it was correct or not -->
         <div class="row">
             <div class="col text-secondary" id="response"></div>
         </div>
     </main>
 
-    <script src="script/script.js"></script>
+    <script src="script/index-script.js"></script>
 </body>
 </html>

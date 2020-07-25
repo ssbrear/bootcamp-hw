@@ -1,17 +1,22 @@
 body {
     font-family: Verdana, sans-serif;
+    background-color: honeydew;
 }
 
-#question, #subtitle {
+#question, #subtitle, #title {
     text-align: center;
 }
 
-#question {
+#question, #title {
     font-size: 40px;
 }
 
 #subtitle {
     font-size: 16px;
+}
+
+#timer, #timer-label {
+    font-size: 14px;
 }
 
 #timer {
@@ -24,6 +29,7 @@ body {
 
 ul {
     list-style: none;
+    text-align: center;
 }
 
 #resposne {
@@ -32,5 +38,15 @@ ul {
 
 #initials {
     text-align: center;
+    display: none;
+}
+
+a:link, a:visited, a:hover a:active{
+    color: black;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+#submit-button {
     display: none;
 }
