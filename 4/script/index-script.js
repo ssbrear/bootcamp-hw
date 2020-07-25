@@ -88,16 +88,15 @@ startBtn.addEventListener("click", function(){
         // Functionality for picking an answer
         listButton.onclick = function() {
 
-            // Determines whether correct or incorrect
+            // Determines whether correct or incorrect and notifies the user
             if (correctAnswer[currentQuestion] == this.value) {
-                // Display "Correct!"
                 response.textContent = "Correct!";
                 
             }
             else {
-                // Reduce timer by 10 seconds and display "Wrong!"
-                timer.textContent = parseInt(timer.textContent) - 10;
                 response.textContent = "Wrong!";
+                // Additionally reduces timer by 10s if incorrect
+                timer.textContent = parseInt(timer.textContent) - 10;
             }
             
             // Resets the response

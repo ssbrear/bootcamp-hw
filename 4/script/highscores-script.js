@@ -19,9 +19,15 @@ function init() {
     if (arrayOfScores != null) {
         // For each score in local storage, creates and appends a list item
         arrayOfScores.forEach(i => {
+            // Creates new list element
             var newItem = document.createElement("li");
+            // Initializes the text of the element
             newItem.textContent = i;
+            // Appends the list element to the unordered list
             list.appendChild(newItem);
+            // Adds some additional styling to the list element
+            newItem.style.fontSize = "24px";
+            newItem.style.margin = "16px";
         });
     }
 }
