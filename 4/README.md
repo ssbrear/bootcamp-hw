@@ -1,8 +1,11 @@
 -----MY README-----
+This project is a code quiz that asks some basic questions about programming languages and basic aspects of web development.
 
+The score is determined both by how long it takes for the user to answer all of the questions, and how correct the user was.
+(Each wrong question is worth 10 seconds).
 
-
-
+At the end of the quiz, the user inputs their initials and submits them to local storage.
+If the page is loaded at a later time on the same computer, the high score should remain.
 
 -----INSTRUCTIONS-----
 # 04 Web APIs: Code Quiz

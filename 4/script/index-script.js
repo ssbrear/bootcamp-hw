@@ -64,6 +64,10 @@ startBtn.addEventListener("click", function(){
     // Timer has started
     theTimer = setInterval(function() {
         timer.textContent = parseInt(timer.textContent) - 1;
+        if (parseInt(timer.textContent) == 0) {
+            window.clearInterval(theTimer);
+            allDone();
+        }
     }, 1000);
 
     // Adding new content
@@ -117,13 +121,7 @@ startBtn.addEventListener("click", function(){
 
             }
             else {
-                // Load "All Done" page
-                question.textContent = "All done!";
-                answer.style.display = "none";
-                subtitle.textContent = "Your score is: " + timer.textContent;
-                initials.style.display = "inline-block";
-                submitBtn.style.display = "inline-block";
-                window.clearInterval(theTimer);
+                allDone();
             }
 
         };
@@ -145,3 +143,13 @@ submitBtn.addEventListener("click", function(event) {
     // Updates the value of the data in local storage
     localStorage.setItem("highscores", JSON.stringify(highscoresArray));
 });
+
+function allDone() {
+    // Load "All Done" page
+    question.textContent = "All done!";
+    answer.style.display = "none";
+    subtitle.textContent = "Your score is: " + timer.textContent;
+    initials.style.display = "inline-block";
+    submitBtn.style.display = "inline-block";
+    window.clearInterval(theTimer);
+}
