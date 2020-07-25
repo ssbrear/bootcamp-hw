@@ -23,7 +23,7 @@ var questionList = ["Which programming language runs the fastest?",
                 "Where does javascript's console.log() function print the argument?",
                 "Which of the following is used to compare content, but not data types?",
                 "What is jQuery?",
-                "If load multiple CSS files to be used for my webpage, what will happen?"];
+                "If multiple CSS files are linked to be used for my webpage, what will happen?"];
 var answersList = [["C++", "Python", "Java", "Fortran"],
                 ["The body of the html page", "The command prompt of your operating system", "The console of the webpage", "It doesn't print the argument"],
                 ["=", "==", "===", "===="],
