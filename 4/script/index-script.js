@@ -64,7 +64,7 @@ startBtn.addEventListener("click", function(){
     // Timer has started
     theTimer = setInterval(function() {
         timer.textContent = parseInt(timer.textContent) - 1;
-        if (parseInt(timer.textContent) == 0) {
+        if (parseInt(timer.textContent) <= 0) {
             window.clearInterval(theTimer);
             allDone();
         }
