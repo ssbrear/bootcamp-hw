@@ -6,59 +6,25 @@
 body{
     background-color: #efeee7;
     color: #333;
-    margin: 0;
-    padding: 0;
     line-height: 1.5;
 }
 
 header h1{
-    margin: 0;
-    padding: 8px;
-
+    text-align: center;
     background-color: #333;
     color: #efeee7;
-    
-    text-align: center;
+    line-height: 1.5;
     font-size: 48px;
+    font-weight: bold;
 }
 
-/* Styling of individual elements */
-
-h1 {
-    font-size: 32px;
-    margin-top: 16px;
+a:link, a:visited, a:hover, a:active {
+    color: rgb(175, 57, 57);
 }
 
-p {
-    position: relative;
-    top: 140px;
-    font-size: 16px;
+ul {
+    list-style: none;
 }
 
 ol {
-    list-style-position: inside;
-}
-
-a{
-    color: #d21034;
-}
-
-.wrapper {
-    margin: auto;
-    width: 1024px;
-    overflow: auto;
-}
-
-#bio {
-    float: left;
-}
-
-#contact {
-    float: right;
-}
-
-#homework {
-    margin-top: 80px;
-    text-align: center;
-    list-style-position: inside;
 }

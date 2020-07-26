@@ -3,68 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <title>Basic HTML Bio</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="style.css" type = "text/css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
     <!-- Site Header -->
-    <header>
-        <h1 class = "top">Student Bio</h1>
+    <header class="container-fluid">
+        <div class="row">
+            <h1 class="col-12">Student Bio</h1>
+        </div>
     </header>
 
-    <section class = "wrapper">
         
-    <!-- Picture and short bio -->
-    <main id = "bio">
-        <h1>Sebastian Brear</h1>
-        <img id = "bio-img" src = "profile-picture.jpg" width = "200" height = "200" alt="Not Loading">
+    <!-- Main Content -->
+    <main class="container">
+        <div class="row">
+            <!-- Name -->
+            <h1 class="col">Sebastian Brear</h1>
+        </div>
+        <div class="row">
+            <p class="col">I'm currently attending <a class="bio-link" href = "https://www.ucdavis.edu/">UC Davis</a>, majoring in <a class="bio-link" href = "https://tinyurl.com/ybm2462h">Electrical Engineering</a></p>
+        </div>
+        <!-- Short bio -->
+        <div class="row">
+            <img src = "profile-picture.jpg" width="450">
+            <aside class="col offset-2">
+                <h1>Homework Assignments:</h1>
+                <ol>
+                    <li>
+                        Code Refactor
+                        <span class="assignment-links">
+                            <a href="1/Develop/index-1.html">Project</a>
+                            <a href="https://github.com/ssbrear/bootcamp-hw/tree/master/1">Github</a>
+                        </span>
+                    </li>
+                    <li>
+                        Responsive Portfolio
+                        <span class="assignment-links">
+                            <a href="2/index-2.html">Project</a>
+                            <a href="https://github.com/ssbrear/bootcamp-hw/tree/master/2">Github</a>
+                        </span>
+                    </li>
+                    <li>
+                        Secure Password Generator
+                        <span class="assignment-links">
+                            <a href="3/Develop/index-3.html">Project</a>
+                            <a href="https://github.com/ssbrear/bootcamp-hw/tree/master/3">Github</a>
+                        </span>
+                    </li>
+                    <li>
+                        Code Quiz
+                        <span class="assignment-links">
+                            <a href="4/index-4.html">Project</a>
+                            <a href="https://github.com/ssbrear/bootcamp-hw/tree/master/4">Github</a>
+                        </span>
+                    </li>
+                </ol>
+            </aside>
+        </div>
+        <!-- Profile picture -->
+        
+        <h4 class="row mt-4">Contact Info</h1>
+        <ul class="row list-group">
+            <li><a href = "mailto: sebastian.brear@gmail.com">Email</a></li>
+            <li><a href = "https://github.com/ssbrear">GitHub</a></li>
+            <li><a href = "https://www.linkedin.com/in/sebastian-brear-966033189/">LinkedIn</a></li>
+        </ul>
+
     </main>
-        
-    <p>
-        I'm currently attending <a href = "https://www.ucdavis.edu/">UC Davis</a>, majoring in <a href = "https://tinyurl.com/ybm2462h">Electrical Engineering</a>
-    </p>
-
-    <!-- Unordered list of contact info -->
-    <section id = "contact">
-        <h1>
-            Contact Info
-        </h1>
-            <ul>
-                <li>
-                    <a href = "mailto: sebastian.brear@gmail.com">Email</a>
-                </li>
-                <li>
-                    <a href = "https://github.com/ssbrear">GitHub</a>
-                </li>
-                <li>
-                    <a href = "https://www.linkedin.com/in/sebastian-brear-966033189/">LinkedIn</a>
-                </li>
-            </ul>
-    </section>
-
-    </section>
-
-    <!-- Ordered list of homework assignments in chronological order -->
-    <aside id = "homework">
-        <h1>
-            Homework Assignments:
-        </h1>
-        <ol>
-            <li>
-                <a href="1/Develop/index-1.html">Code Refactor</a>
-            </li>
-            <li>
-                <a href="2/index-2.html">Responsive Portfolio</a>
-            </li>
-            <li>
-                <a href="3/Develop/index-3.html">Secure Password Generator</a>
-            </li>
-            <li>
-                <a href="4/index-4.html">Code Quiz</a>
-            </li>
-        </ol>
-    </aside>
 
     
+
+    
+
+    <script type="text/javascript" src="script.js"></script>
 </body>
 
 </html>
