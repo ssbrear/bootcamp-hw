@@ -1,4 +1,15 @@
 -----MY README-----
+This project is a schedular that can store data during regular work hours (9am-5pm).
+
+Clicking the save button will store the input in the text area to local storage using a key that is simply the respective hour.
+
+During this project, I noticed that it was much easier to store multiple keys, one for each hour slot, rather than store an array using JSON that stores all of the data.
+
+I notice that there were some pre-set styling created for me to use, but I preferred to style the project from scratch.
+
+
+
+
 
 -----INSTRUCTIONS-----
 # 05 Third-Party APIs: Work Day Scheduler
@@ -20,10 +31,10 @@ SO THAT I can manage my time effectively
 ```
 GIVEN I am using a daily planner to create a schedule
 
-            WHEN I open the planner
-                THEN the current day is displayed at the top of the calendar
-            WHEN I scroll down
-                THEN I am presented with timeblocks for standard business hours
+WHEN I open the planner
+    THEN the current day is displayed at the top of the calendar
+WHEN I scroll down
+    THEN I am presented with timeblocks for standard business hours
 WHEN I view the timeblocks for that day
     THEN each timeblock is color coded to indicate whether it is in the past, present, or future
 WHEN I click into a timeblock
