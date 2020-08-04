@@ -4,21 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
-      crossorigin="anonymous"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css"/>
     <title>Work Day Scheduler</title>
   </head>
 
@@ -28,11 +17,83 @@
       <p class="lead">A simple calendar app for scheduling your work day</p>
       <p id="currentDay" class="lead"></p>
     </header>
-    <div class="container">
-      <!-- Timeblocks go here -->
+    <div id="time-blocks" class="container my-5">
+      <div value = 9 class="row h-100">
+        <div class="col-1 px-0 my-auto text-right">9:00 AM</div>
+        <div class="col my-auto">
+          <textarea class="form-control" type="text" disabled></textarea>
+        </div>
+        <div class="col-1 my-auto">
+          <button type="submit" class="btn btn-secondary">Save</button>
+        </div>
+      </div>
+      <div value = 10 class="row h-100">
+        <div class="col-1 px-0 my-auto text-right">10:00 AM</div>
+        <div class="col my-auto">
+          <textarea class="form-control" type="text" disabled></textarea>
+        </div>
+        <div class="col-1 my-auto">
+          <button type="submit" class="btn btn-secondary">Save</button>
+        </div>
+      </div>
+      <div value = 11 class="row h-100">
+        <div class="col-1 px-0 my-auto text-right">11 :00 AM</div>
+        <div class="col my-auto">
+          <textarea class="form-control" type="text" disabled></textarea>
+        </div>
+        <div class="col-1 my-auto">
+          <button type="submit" class="btn btn-secondary">Save</button>
+        </div>
+      </div>
+      <div value = 12 class="row h-100">
+        <div class="col-1 px-0 my-auto text-right">12:00 PM</div>
+        <div class="col my-auto">
+          <textarea class="form-control" type="text" disabled></textarea>
+        </div>
+        <div class="col-1 my-auto">
+          <button type="submit" class="btn btn-secondary">Save</button>
+        </div>
+      </div>
+      <div value = 13 class="row h-100">
+        <div class="col-1 px-0 my-auto text-right">1:00 PM</div>
+        <div class="col my-auto">
+          <textarea class="form-control" type="text" disabled></textarea>
+        </div>
+        <div class="col-1 my-auto">
+          <button type="submit" class="btn btn-secondary">Save</button>
+        </div>
+      </div>
+      <div value = 14 class="row h-100">
+        <div class="col-1 px-0 my-auto text-right">2:00 PM</div>
+        <div class="col my-auto">
+          <textarea class="form-control" type="text" disabled></textarea>
+        </div>
+        <div class="col-1 my-auto">
+          <button type="submit" class="btn btn-secondary">Save</button>
+        </div>
+      </div>
+      <div value = 15 class="row h-100">
+        <div class="col-1 px-0 my-auto text-right">3:00 PM</div>
+        <div class="col my-auto">
+          <textarea class="form-control" type="text" disabled></textarea>
+        </div>
+        <div class="col-1 my-auto">
+          <button type="submit" class="btn btn-secondary">Save</button>
+        </div>
+      </div>
+      <div value = 16 class="row h-100">
+        <div class="col-1 px-0 my-auto text-right">4:00 PM</div>
+        <div class="col my-auto">
+          <textarea class="form-control" type="text" disabled></textarea>
+        </div>
+        <div class="col-1 my-auto">
+          <button type="submit" class="btn btn-secondary">Save</button>
+        </div>
+      </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
