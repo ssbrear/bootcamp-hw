@@ -132,6 +132,11 @@ function updateWeather() {
 
 function updateList() {
     userInput.val("");
+    for (var i = 0; i < cityList.children().length; i++) {
+        if (cityNow.Name == $($(cityList).children()[i]).text().split(",")[0]) {
+            return
+        }
+    }
     var newCity = $("<button>");
     newCity.addClass("city cell");
     newCity.text(cityNow.Name + ", " + cityNow.Country);
@@ -158,6 +163,7 @@ function checkStorage() {
     if (storageHistory == null) {
         return
     }
+    var futureSearch = {};
     for (var i = 0; i < storageHistory.length; i++) {
         var str = storageHistory[storageHistory.length - (1 + i)];
         var splitStr = str.split(",");
@@ -165,7 +171,13 @@ function checkStorage() {
         cityNow.Name = splitStr[0];
         cityNow.Country = splitStr[1];
         updateList();
+        if (i == 0) {
+            futureSearch.Name = splitStr[0];
+            futureSearch.Country = splitStr[1];
+        }
     }
+    locateURL = "https://api.openweathermap.org/data/2.5/weather?APPID=" + API_KEY + "&q=" + futureSearch.Name + "," + futureSearch.Country;
+    checkWeather()
 }
 
 checkStorage();
