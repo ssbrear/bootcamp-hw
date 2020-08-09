@@ -39,7 +39,7 @@ var cityNow = {
     Wind: "",
     UV: 0
 };
-var locateURL = "http://api.openweathermap.org/data/2.5/weather?APPID=" + API_KEY + "&q=" + cityNow.Name + "," + cityNow.Country;
+var locateURL = "https://api.openweathermap.org/data/2.5/weather?APPID=" + API_KEY + "&q=" + cityNow.Name + "," + cityNow.Country;
 var weatherURL = "";
 var cityForcast = []
 var checkingStorage = false;
@@ -56,7 +56,7 @@ searchBtn.on("click", function() {
     if (userInput.val() == "") {return}
 
     // Calls API function
-    locateURL = "http://api.openweathermap.org/data/2.5/weather?APPID=" + API_KEY + "&q=" + userInput.val() + "," + countryList.val();
+    locateURL = "https://api.openweathermap.org/data/2.5/weather?APPID=" + API_KEY + "&q=" + userInput.val() + "," + countryList.val();
     checkWeather()
 })
 
@@ -68,7 +68,6 @@ function checkWeather() {
         cityNow.Country = coordResponse.sys.country;
         cityNow.Lat = coordResponse.coord.lat;
         cityNow.Lon = coordResponse.coord.lon;
-        console.log(cityNow);
         weatherURL = "https://api.openweathermap.org/data/2.5/onecall?units=imperial&lat=" + cityNow.Lat +"&lon=" + cityNow.Lon +"&appid=" + API_KEY;
         $.ajax({
             url: weatherURL
@@ -87,7 +86,7 @@ function checkWeather() {
                 }
             }
 
-            uvURL = "http://api.openweathermap.org/data/2.5/uvi?appid=" + API_KEY + "&lat=" + cityNow.Lat + "&lon=" + cityNow.Lon;
+            uvURL = "https://api.openweathermap.org/data/2.5/uvi?appid=" + API_KEY + "&lat=" + cityNow.Lat + "&lon=" + cityNow.Lon;
             $.ajax({
                 url: uvURL
             }).then(function(uvResponse) {
@@ -125,7 +124,7 @@ function updateWeather() {
         $(temps[i+1]).text(cityForcast[i].Temp);
         $(hums[i+1]).text(cityForcast[i].Hum);
         $(dates[i]).text(moment().format("MM/" + (currentDay + i + 1) + "/YYYY"));
-        $(icons[i]).attr("src", "http://openweathermap.org/img/wn/" + cityForcast[i].Icon + "@2x.png")
+        $(icons[i]).attr("src", "https://openweathermap.org/img/wn/" + cityForcast[i].Icon + "@2x.png")
     }
     
     updateList();
@@ -138,7 +137,7 @@ function updateList() {
     newCity.text(cityNow.Name + ", " + cityNow.Country);
     cityList.prepend(newCity);
     newCity.on("click", function() {
-        locateURL = "http://api.openweathermap.org/data/2.5/weather?APPID=" + API_KEY + "&q=" + $(this).text().trim();
+        locateURL = "https://api.openweathermap.org/data/2.5/weather?APPID=" + API_KEY + "&q=" + $(this).text().trim();
         checkWeather()
     });
     if (cityList.children().length > 8) {
