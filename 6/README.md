@@ -1,3 +1,17 @@
+----- MY README -----
+# To acknowledge the lack of Bootstrap
+
+I deliberately chose not to use Bootstrap with the OK from one of the TAs who supervises my class. This is because the group project we are working on this week requires us to
+use a CSS framework that is *not* bootstrap, and I wanted some practice on my own before working in a group setting.
+
+# Learning how to use an API
+
+My primary experience working with APIs prior to this assignment was using OMDb to retrieve data about movies and the New York Times' API to search for articles. I felt
+very comfortable with my abilities in this area going into this project, and every time I work with APIs, I am constantly reminded of all of the data that is out there that I 
+could play with and make something out of.
+
+
+----- INSTRUCTIONS -----
 # 06 Server-Side APIs: Weather Dashboard
 
 Developers are often tasked with retrieving data from another application's API and using it in the context of their own. Third-party APIs allow developers to access their data and functionality by making requests with specific parameters to a URL. Your challenge is to build a weather dashboard that will run in the browser and feature dynamically updated HTML and CSS.
