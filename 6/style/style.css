@@ -50,6 +50,7 @@ header {
 .grid-x > .card {
     margin-left: 4px;
     margin-right: 4px;
+    background-color: rgb(168, 174, 228);
 }
 
 #uv-display {

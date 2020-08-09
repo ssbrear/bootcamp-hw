@@ -22,11 +22,13 @@ var temps = $(".temp");
 // Humidity
 var hums = $(".humidity");
 // Wind Speed
-var windSpeed = $("#wind-speed")
+var windSpeed = $("#wind-speed");
 // UV Index
-var uvIndex = $("#uv-index")
+var uvIndex = $("#uv-index");
 // Date
-var dates = $(".date")
+var dates = $(".date");
+// Icons
+var icons = $(".icons");
 
 // Variables
 var curCountry = "US";
@@ -73,7 +75,6 @@ function checkWeather() {
         $.ajax({
             url: weatherURL
         }).then(function(weatherResponse) {
-            console.log(weatherResponse);
             // Current Day
             cityNow.Temp = Math.round(10*(parseFloat(weatherResponse.current.temp)))/10;
             cityNow.Wind = weatherResponse.current.wind_speed;
@@ -83,7 +84,8 @@ function checkWeather() {
             for (var i = 0; i < 5; i++) {
                 cityForcast[i] = {
                     Temp: weatherResponse.daily[i+1].temp.day,
-                    Hum: weatherResponse.daily[i+1].humidity
+                    Hum: weatherResponse.daily[i+1].humidity,
+                    Icon: weatherResponse.daily[i+1].weather[0].icon
                 }
             }
 
@@ -125,6 +127,7 @@ function updatePage() {
         $(temps[i+1]).text(cityForcast[i].Temp);
         $(hums[i+1]).text(cityForcast[i].Hum);
         $(dates[i]).text(moment().format("MM/" + (currentDay + i + 1) + "/YYYY"));
+        $(icons[i]).attr("src", "http://openweathermap.org/img/wn/" + cityForcast[i].Icon + "@2x.png")
     }
 }
 
