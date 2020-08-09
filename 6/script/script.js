@@ -11,8 +11,6 @@ var cityList = $("#city-list");
 var countryList = $("#dropdown");
 // Current city
 var currentCity = $("#current-city");
-// City button
-var cityBtn = $(".city");
 // UV Icon
 var uvIcon = $("#uv-display");
 
@@ -31,20 +29,23 @@ var dates = $(".date");
 var icons = $(".icons");
 
 // Variables
-var curCountry = "US";
-var curCity = "Austin";
-var locateURL = "http://api.openweathermap.org/data/2.5/weather?APPID=96c82e4b7f44adda1b4bf872938f33c4&q=Austin,US";
-var weatherURL = "";
 var cityNow = {
     Lat: 0,
     Lon: 0,
-    Name: "",
+    Name: "Vancouver",
+    Country: "CA",
     Temp: "",
     Hum: 0,
     Wind: "",
     UV: 0
 };
+var locateURL = "http://api.openweathermap.org/data/2.5/weather?APPID=" + API_KEY + "&q=" + cityNow.Name + "," + cityNow.Country;
+var weatherURL = "";
 var cityForcast = []
+var checkingStorage = false;
+
+// Local Storage
+var historyList = [];
 
 // When user searches for a city
 searchBtn.on("click", function() {
@@ -59,18 +60,15 @@ searchBtn.on("click", function() {
     checkWeather()
 })
 
-cityBtn.on("click", function() {
-    locateURL = "http://api.openweathermap.org/data/2.5/weather?APPID=" + API_KEY + "&q=" + $(this).text().trim();
-    checkWeather()
-});
-
 function checkWeather() {
     $.ajax({
         url: locateURL
     }).then(function(coordResponse) {
         cityNow.Name = coordResponse.name;
+        cityNow.Country = coordResponse.sys.country;
         cityNow.Lat = coordResponse.coord.lat;
         cityNow.Lon = coordResponse.coord.lon;
+        console.log(cityNow);
         weatherURL = "https://api.openweathermap.org/data/2.5/onecall?units=imperial&lat=" + cityNow.Lat +"&lon=" + cityNow.Lon +"&appid=" + API_KEY;
         $.ajax({
             url: weatherURL
@@ -94,13 +92,13 @@ function checkWeather() {
                 url: uvURL
             }).then(function(uvResponse) {
                 cityNow.UV = uvResponse.value;
-                updatePage();
+                updateWeather();
             });
         });
     });
 }
 
-function updatePage() {
+function updateWeather() {
     // Update Main Card
     var currentDay = parseInt(moment().format("DD"));
     currentCity.text(cityNow.Name + " (" + moment().format("MM/" + currentDay + "/YYYY") + ")");
@@ -122,13 +120,53 @@ function updatePage() {
         uvIcon.css("color", "purple");
     }
 
-    // Update forcast
+    // Update Forcast
     for (var i = 0; i < 5; i++) {
         $(temps[i+1]).text(cityForcast[i].Temp);
         $(hums[i+1]).text(cityForcast[i].Hum);
         $(dates[i]).text(moment().format("MM/" + (currentDay + i + 1) + "/YYYY"));
         $(icons[i]).attr("src", "http://openweathermap.org/img/wn/" + cityForcast[i].Icon + "@2x.png")
     }
+    
+    updateList();
 }
 
-checkWeather();
+function updateList() {
+    userInput.val("");
+    var newCity = $("<button>");
+    newCity.addClass("city cell");
+    newCity.text(cityNow.Name + ", " + cityNow.Country);
+    cityList.prepend(newCity);
+    newCity.on("click", function() {
+        locateURL = "http://api.openweathermap.org/data/2.5/weather?APPID=" + API_KEY + "&q=" + $(this).text().trim();
+        checkWeather()
+    });
+    if (cityList.children().length > 8) {
+        $(".city:last-child").remove();
+    }
+
+    // Update array
+    historyList.unshift(newCity.text());
+    if (historyList.length > 8) {
+        historyList.pop();
+    }
+    // Pass array into storage
+    localStorage.setItem("historyList", JSON.stringify(historyList));
+}
+
+function checkStorage() {
+    var storageHistory = JSON.parse(localStorage.getItem("historyList"));
+    if (storageHistory == null) {
+        return
+    }
+    for (var i = 0; i < storageHistory.length; i++) {
+        var str = storageHistory[storageHistory.length - (1 + i)];
+        var splitStr = str.split(",");
+        splitStr[1] = splitStr[1].trim();
+        cityNow.Name = splitStr[0];
+        cityNow.Country = splitStr[1];
+        updateList();
+    }
+}
+
+checkStorage();
