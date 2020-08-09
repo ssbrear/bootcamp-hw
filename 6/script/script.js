@@ -105,6 +105,7 @@ function updateWeather() {
     $(hums[0]).text(cityNow.Hum);
     windSpeed.text(cityNow.Wind);
 
+    // Controls the colour of the UV indicator
     uvIndex.text(cityNow.UV);
     var indexNum = parseFloat(uvIndex.text());
     if (indexNum <= 3) {
@@ -132,11 +133,13 @@ function updateWeather() {
 
 function updateList() {
     userInput.val("");
+    // Checks for copies in history
     for (var i = 0; i < cityList.children().length; i++) {
         if (cityNow.Name == $($(cityList).children()[i]).text().split(",")[0]) {
             return
         }
     }
+    // Dynamically creates and adds a new button to the history list with the name and country of the location
     var newCity = $("<button>");
     newCity.addClass("city cell");
     newCity.text(cityNow.Name + ", " + cityNow.Country);
@@ -158,12 +161,12 @@ function updateList() {
     localStorage.setItem("historyList", JSON.stringify(historyList));
 }
 
+// Retrieves any available data from storage
 function checkStorage() {
     var storageHistory = JSON.parse(localStorage.getItem("historyList"));
     if (storageHistory == null) {
         return
     }
-    var futureSearch = {};
     for (var i = 0; i < storageHistory.length; i++) {
         var str = storageHistory[storageHistory.length - (1 + i)];
         var splitStr = str.split(",");
@@ -171,13 +174,10 @@ function checkStorage() {
         cityNow.Name = splitStr[0];
         cityNow.Country = splitStr[1];
         updateList();
-        if (i == 0) {
-            futureSearch.Name = splitStr[0];
-            futureSearch.Country = splitStr[1];
-        }
     }
-    locateURL = "https://api.openweathermap.org/data/2.5/weather?APPID=" + API_KEY + "&q=" + futureSearch.Name + "," + futureSearch.Country;
+    locateURL = "https://api.openweathermap.org/data/2.5/weather?APPID=" + API_KEY + "&q=" + cityNow.Name + "," + cityNow.Country;
     checkWeather()
 }
 
+// The only function that is *directly* called on opening the page
 checkStorage();
