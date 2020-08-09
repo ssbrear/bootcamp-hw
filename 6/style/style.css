@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Rowdies&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
 
 body {
     background-color: #efeee7;
+    font-family: Josefin Sans;
 }
 
 header {
@@ -15,15 +17,17 @@ header {
     padding-bottom: 8px;
 }
 
+#current-city, #current-forcast {
+    font-family: Rowdies;
+}
+
 #search-label {
     font-size: 20px;
     font-weight: bold;
 }
 
 #search-button {
-    padding-bottom: 8px;
-    padding-left: 8px;
-    outline: none;
+    margin-bottom: 24px;
 }
 
 #city-section {
@@ -40,5 +44,6 @@ header {
 }
 
 .city{
+    padding-top: 16px;
     font-size:40px;
 }
