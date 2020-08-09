@@ -13,7 +13,8 @@
     <script src="https://kit.fontawesome.com/72cff2407d.js" crossorigin="anonymous"></script>
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-
+    <!-- moment.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
 </head>
 <body>
 
@@ -24,65 +25,75 @@
     </header>
 
     <main class="grid-container">
+        <!-- main grid -->
         <div class="grid-x grid-margin-x">
             <!-- City search and city list -->
-            <div class="medium-4 cell" id="city-section">
+            <div class="large-4 cell" id="city-section">
                 <!-- Search -->
-                <div class="grid-x" id="search-form">
-                    <label id="search-label">Search for a city:</label>
-                    <input type="text" placeholder="Name of a city" class="small-11">
+                <div class="grid-x grid-margin-x" id="search-form">
+                    <label class="small-12" id="search-label">Search for a city:</label>
+                    <select class="small-4" id="dropdown">
+                        <option>US</option>
+                        <option>UK</option>
+                        <option>DE</option>
+                        <option>FR</option>
+                        <option>MX</option>
+                        <option>CA</option>
+                        <option>SE</option>
+                    </select>
+                    <input type="text" placeholder="Name of a city" class="small-7" id="user-input">
                     <button type="button" class="small-1" id="search-button">
                         <i class="fa fa-search"></i>
                     </button>
                 </div>
                 <!-- List -->
-                <div class="grid-x">
+                <div class="grid-x" id="city-list">
                     <button class="city cell">
-                        Dallas
+                        Vancouver, CA
                     </button>
                     <button class="city cell">
-                        San Francisco
+                        San Francisco, US
                     </button>
                     <button class="city cell">
-                        New York
+                        New York, US
                     </button>
                     <button class="city cell">
-                        Boston
+                        Berlin, DE
                     </button>
                     <button class="city cell">
-                        Davis
+                        Stockholm, SE
                     </button>
                     <button class="city cell">
-                        Sacramento
+                        Liverpool, UK
                     </button>
                     <button class="city cell">
-                        Detroit
+                        Tijuana, MX
                     </button>
                     <button class="city cell">
-                        Chicago
+                        Bordeaux, FR
                     </button>
                 </div>
             </div>
             <!-- Weather details and 5-day forcast -->
-            <div class="medium-8 cell" id="weather-section">
+            <div class="large-8 cell" id="weather-section">
                 <!-- Weather details -->
                 <div>
-                    <h1 id="current-city">Austin (8/8/2020)</h1>
-                    <div class="temp" value = 0>
+                    <h1 id="current-city">Austin (08/8/2020)</h1>
+                    <div>
                         <i class="fas fa-thermometer-half"></i>
-                        Temperature: 90.9&degF
+                        Temperature: <span class="temp" value = 0>90.9</span>&degF
                     </div>
-                    <div class="humidity" value = 0>
+                    <div>
                         <i class="fas fa-tint"></i>
-                        Humidity: 41%
+                        Humidity: <span class="humidity" value = 0>41%</span>
                     </div>
-                    <div class="wind-speed">
+                    <div>
                         <i class="fas fa-wind"></i>
-                        Wind Speed: 4.7 MPH
+                        Wind Speed: <span id="wind-speed">4.7</span> MPH
                     </div>
-                    <div class="uv-idex">
-                        <i class="far fa-sun"></i>
-                        UV Index: 9.49
+                    <div>
+                        <i id="uv-display" class="far fa-sun"></i>
+                        UV Index: <span id="uv-index">9.49</span>
                     </div>
                 </div>
                 <!-- 5-day forcast -->
@@ -91,52 +102,52 @@
                     <div class="grid-x">
                         <div class="card">
                             <div class="card-section">
-                                <div class="date">8/9/2020</div>
+                                <div class="date">08/9/2020</div>
                                 <div class="weather-pic">
                                     <i class="far fa-sun"></i>
                                 </div>
-                                <div class="temp" value = 1>Temp: 90.9&degF</div>
-                                <div class="humidity" value = 1>Humidity: 41%</div>
+                                <div>Temp: <span class="temp" value = 5>90.9</span>&degF</div>
+                                <div>Humidity: <span class="humidity" value = 5>41%</span></div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-section">
-                                <div class="date">8/10/2020</div>
+                                <div class="date">08/10/2020</div>
                                 <div class="weather-pic">
                                     <i class="fas fa-cloud-sun-rain"></i>
                                 </div>
-                                <div class="temp" value = 2>Temp: 90.9&degF</div>
-                                <div class="humidity" value = 2>Humidity: 41%</div>
+                                <div>Temp: <span class="temp" value = 5>90.9</span>&degF</div>
+                                <div>Humidity: <span class="humidity" value = 5>41%</span></div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-section">
-                                <div class="date">8/11/2020</div>
+                                <div class="date">08/11/2020</div>
                                 <div class="weather-pic">
                                     <i class="fas fa-cloud"></i>
                                 </div>
-                                <div class="temp" value = 3>Temp: 90.9&degF</div>
-                                <div class="humidity" value = 3>Humidity: 41%</div>
+                                <div>Temp: <span class="temp" value = 5>90.9</span>&degF</div>
+                                <div>Humidity: <span class="humidity" value = 5>41%</span></div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-section">
-                                <div class="date">8/12/2020</div>
+                                <div class="date">08/12/2020</div>
                                 <div class="weather-pic">
                                     <i class="fas fa-cloud-showers-heavy"></i>
                                 </div>
-                                <div class="temp" value = 4>Temp: 90.9&degF</div>
-                                <div class="humidity" value = 4>Humidity: 41%</div>
+                                <div>Temp: <span class="temp" value = 5>90.9</span>&degF</div>
+                                <div>Humidity: <span class="humidity" value = 5>41%</span></div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-section">
-                                <div class="date">8/13/2020</div>
+                                <div class="date">08/13/2020</div>
                                 <div class="weather-pic">
                                     <i class="fas fa-bolt"></i>
                                 </div>
-                                <div class="temp" value = 5>Temp: 90.9&degF</div>
-                                <div class="humidity" value = 5>Humidity: 41%</div>
+                                <div>Temp: <span class="temp" value = 5>90.9</span>&degF</div>
+                                <div>Humidity: <span class="humidity" value = 5>41%</span></div>
                             </div>
                         </div>
                     </div>

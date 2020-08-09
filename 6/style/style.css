@@ -26,14 +26,13 @@ header {
     font-weight: bold;
 }
 
+#search-form > * {
+    margin-left: 16px;
+}
+
 #search-button {
-    margin-bottom: 24px;
-}
-
-#city-section {
-}
-
-#weather-section {
+    margin-bottom: 16px;
+    outline: none;
 }
 
 #city-section, #weather-section {
@@ -46,4 +45,13 @@ header {
 .city{
     padding-top: 16px;
     font-size:40px;
+}
+
+.grid-x > .card {
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+#uv-display {
+    color: red;
 }
