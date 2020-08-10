@@ -56,3 +56,9 @@ header {
 #uv-display {
     color: orange;
 }
+
+@media (max-width: 1024px) {
+    #weather-section {
+        text-align: center;
+    }
+}

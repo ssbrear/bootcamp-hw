@@ -13,6 +13,8 @@ var countryList = $("#dropdown");
 var currentCity = $("#current-city");
 // UV Icon
 var uvIcon = $("#uv-display");
+// Form
+var cityForm = $("#city-section");
 
 //// Forcast
 // Temp
@@ -48,7 +50,14 @@ var checkingStorage = false;
 var historyList = [];
 
 // When user searches for a city
-searchBtn.on("click", function() {
+// Can either search by clicking enter or submit button
+searchBtn.on("click", searchCity);
+cityForm.on("submit", function(event) {
+    event.preventDefault();
+    searchCity();
+})
+
+function searchCity() {
     // Flashes color of icon to indicate search button was clicked
     $(".fa-search").css("color", "white");
     setTimeout(function() {$(".fa-search").css("color", "black")}, 100)
@@ -58,7 +67,7 @@ searchBtn.on("click", function() {
     // Calls API function
     locateURL = "https://api.openweathermap.org/data/2.5/weather?APPID=" + API_KEY + "&q=" + userInput.val() + "," + countryList.val();
     checkWeather()
-})
+}
 
 function checkWeather() {
     $.ajax({
